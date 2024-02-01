@@ -2,6 +2,9 @@ import { AuthContextProvider } from '@/context/AuthContext';
 import { Inter } from 'next/font/google';
 import './globals.css';
 
+import { Providers } from './providers'
+
+
 // Load the Inter font with 'latin' subset
 const inter = Inter( { subsets: [ 'latin' ] } );
 
@@ -22,10 +25,12 @@ export default function RootLayout( { children }: { children: React.ReactNode } 
       */}
       <head />
       <body>
+      <Providers>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
           {children}
         </AuthContextProvider>
+        </Providers>
       </body>
     </html>
   );
